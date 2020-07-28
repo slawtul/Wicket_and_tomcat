@@ -1,16 +1,22 @@
 body {
-    margin: 4rem;
+  margin: 1rem;
 }
 
 h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .col-12 {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .field-required {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  body {
+    margin: 4rem;
+  }
 }

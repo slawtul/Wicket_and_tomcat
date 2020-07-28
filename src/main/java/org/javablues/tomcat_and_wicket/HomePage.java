@@ -34,9 +34,8 @@ public class HomePage extends GenericPage {
 
     private Button createRegisterButton() {
         Button button = new Button("register", Model.of("Register"));
-        button.add(new PopoverBehavior(
-            "Register user", "Please click to register user")
-            .withTrigger(Trigger.HOVER));
+        button.add(new PopoverBehavior("Register user",
+            "Please click to register user").withTrigger(Trigger.HOVER));
         return button;
     }
 
