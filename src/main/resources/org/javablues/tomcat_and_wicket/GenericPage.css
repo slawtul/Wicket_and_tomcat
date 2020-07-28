@@ -1,0 +1,16 @@
+body {
+    margin: 4rem;
+}
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+.col-12 {
+    margin-bottom: 2rem;
+}
+
+.field-required {
+    color: red;
+    font-weight: bold;
+}

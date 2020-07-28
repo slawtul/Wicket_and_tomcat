@@ -1,18 +1,69 @@
 <html lang="en" xmlns:wicket="http://wicket.apache.org">
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, user-scalable=no, initial-scale=1.0,
-                 maximum-scale=1.0, minimum-scale=1.0"
-        name="viewport">
-  <meta content="ie=edge" http-equiv="X-UA-Compatible">
-  <title>Document</title>
-</head>
-<body>
-  <span wicket:id="hello">[message here]</span>
-  <div><span wicket:id="world">[message here]</span>
-    <div></div>
-  </div>
-  <button class="btn btn-success" wicket:id="register">Register</button>
-  <input class="form-control" type="text" value="hello" wicket:id="username"/>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-12">
+        <h2>Wicket reusables examples</h2>
+      </div>
+
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h3>FieldRequiredBehavior</h3>
+            <form>
+              <div class="form-group">
+                <label for="username" wicket:id="required">[Username]</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  wicket:id="username"
+                  id="username"
+                  required
+                />
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="check-me" />
+                <label class="form-check-label" for="check-me">
+                  Check me out
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h3>PopoverBehavior</h3>
+            <div class="text-muted">Hover the button</div>
+            <button wicket:id="register" class="btn btn-success">
+              [Register]
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h3>TooltipBehavior</h3>
+            <div class="text-muted">Hover the button</div>
+            <button class="btn btn-info" wicket:id="add">
+              [Add]
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

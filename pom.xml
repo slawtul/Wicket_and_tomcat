@@ -26,17 +26,18 @@
             <groupId>org.javablues</groupId>
             <artifactId>wicket_reusables</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-            <!--            <systemPath>/home/slawtul/.m2/repository/org/javablues/wicket_reusables/1.0.0-SNAPSHOT/wicket_reusables-1.0.0-SNAPSHOT.jar</systemPath>-->
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
+            <!--do not forget to change version number in GenericPage.java file-->
             <version>4.5.0</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>popper.js</artifactId>
-            <version>2.0.2</version>
+            <!--do not forget to change version number in GenericPage.java file-->
+            <version>1.16.0</version>
         </dependency>
     </dependencies>
 

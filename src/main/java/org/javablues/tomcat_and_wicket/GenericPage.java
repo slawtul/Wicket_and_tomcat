@@ -1,12 +1,13 @@
 package org.javablues.tomcat_and_wicket;
 
-import org.apache.wicket.markup.head.CssContentHeaderItem;
+import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResourceReference;
+import org.apache.wicket.request.resource.CssResourceReference;
 
 public class GenericPage extends WebPage {
     public GenericPage() {
@@ -23,12 +24,18 @@ public class GenericPage extends WebPage {
     @Override
     public void renderHead(IHeaderResponse response) {
         super.renderHead(response);
-        response.render(CssContentHeaderItem.forReference(
+
+        //css imports
+        response.render(CssHeaderItem.forReference(
             new ContextRelativeResourceReference(
                 "webjars/bootstrap/4.5.0/css/bootstrap.css")));
+        response.render(CssHeaderItem.forReference(
+            new CssResourceReference(GenericPage.class, "GenericPage.css")));
+
+        //javascript imports
         response.render(JavaScriptHeaderItem.forReference(
             new ContextRelativeResourceReference(
-                "webjars/popper.js/2.0.2/umd/popper.js")));
+                "webjars/popper.js/1.16.0/umd/popper.js")));
         response.render(JavaScriptHeaderItem.forReference(
             new ContextRelativeResourceReference(
                 "webjars/bootstrap/4.5.0/js/bootstrap.js")));
