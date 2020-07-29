@@ -10,34 +10,49 @@ import org.apache.wicket.request.resource.ContextRelativeResourceReference;
 import org.apache.wicket.request.resource.CssResourceReference;
 
 public class GenericPage extends WebPage {
-    public GenericPage() {
-    }
 
-    public GenericPage(IModel<?> model) {
-        super(model);
-    }
+  public GenericPage() {}
 
-    public GenericPage(PageParameters parameters) {
-        super(parameters);
-    }
+  public GenericPage(IModel<?> model) {
+    super(model);
+  }
 
-    @Override
-    public void renderHead(IHeaderResponse response) {
-        super.renderHead(response);
+  public GenericPage(PageParameters parameters) {
+    super(parameters);
+  }
 
-        //css imports
-        response.render(CssHeaderItem.forReference(
-            new ContextRelativeResourceReference(
-                "webjars/bootstrap/4.5.0/css/bootstrap.css")));
-        response.render(CssHeaderItem.forReference(
-            new CssResourceReference(GenericPage.class, "GenericPage.css")));
+  @Override
+  public void renderHead(IHeaderResponse response) {
+    super.renderHead(response);
 
-        //javascript imports
-        response.render(JavaScriptHeaderItem.forReference(
-            new ContextRelativeResourceReference(
-                "webjars/popper.js/1.16.0/umd/popper.js")));
-        response.render(JavaScriptHeaderItem.forReference(
-            new ContextRelativeResourceReference(
-                "webjars/bootstrap/4.5.0/js/bootstrap.js")));
-    }
+    //css imports
+    response.render(
+      CssHeaderItem.forReference(
+        new ContextRelativeResourceReference(
+          "webjars/bootstrap/4.5.0/css/bootstrap.css"
+        )
+      )
+    );
+    response.render(
+      CssHeaderItem.forReference(
+        new CssResourceReference(GenericPage.class, "GenericPage.css")
+      )
+    );
+
+    //javascript imports
+    response.render(
+      JavaScriptHeaderItem.forReference(
+        new ContextRelativeResourceReference(
+          "webjars/popper.js/1.16.0/umd/popper.js"
+        )
+      )
+    );
+    response.render(
+      JavaScriptHeaderItem.forReference(
+        new ContextRelativeResourceReference(
+          "webjars/bootstrap/4.5.0/js/bootstrap.js"
+        )
+      )
+    );
+  }
 }
