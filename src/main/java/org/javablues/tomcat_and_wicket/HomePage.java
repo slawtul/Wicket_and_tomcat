@@ -2,8 +2,9 @@ package org.javablues.tomcat_and_wicket;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
-import org.apache.wicket.markup.html.form.TextField;
-import org.apache.wicket.model.Model;
+import org.apache.wicket.markup.html.form.RequiredTextField;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.javablues.wicket_reusables.behaviors.fieldrequired.FieldRequiredBehavior;
 import org.javablues.wicket_reusables.behaviors.popover.PopoverBehavior;
@@ -15,36 +16,36 @@ public class HomePage extends GenericPage {
 
   public HomePage(PageParameters parameters) {
     super(parameters);
-    add(createLabel());
-    add(createUsernameField());
-    add(createRegisterButton());
-    add(createAddButton());
+    add(new RequiredTextField<String>("username"));
+    add(new LabelForRequiredField("required", new ResourceModel("Username")));
+    add(new RegisterButton("register", new ResourceModel("Register")));
+    add(new AddUserButton("addUser", new ResourceModel("Add new user")));
   }
 
-  private Button createAddButton() {
-    Button button = new Button("add", Model.of("Add"));
-    button.add(new TooltipBehavior("Add new user", Placement.RIGHT));
-    return button;
+  private class AddUserButton extends Button {
+
+    public AddUserButton(String id, IModel<String> model) {
+      super(id, model);
+      add(new TooltipBehavior("Add new user", Placement.RIGHT));
+    }
   }
 
-  private Label createLabel() {
-    Label label = new Label("required", "Username");
-    label.add(new FieldRequiredBehavior());
-    return label;
+  private class LabelForRequiredField extends Label {
+
+    public LabelForRequiredField(String id, IModel<?> model) {
+      super(id, model);
+      add(new FieldRequiredBehavior());
+    }
   }
 
-  private Button createRegisterButton() {
-    Button button = new Button("register", Model.of("Register"));
-    button.add(
-      new PopoverBehavior("Register user", "Please click to register user")
-      .withTrigger(Trigger.HOVER)
-    );
-    return button;
-  }
+  private class RegisterButton extends Button {
 
-  private TextField<String> createUsernameField() {
-    TextField<String> field = new TextField<>("username");
-    field.setRequired(true);
-    return field;
+    public RegisterButton(String id, IModel<String> model) {
+      super(id, model);
+      add(
+        new PopoverBehavior("Register user", "Please click to register user")
+        .withTrigger(Trigger.HOVER)
+      );
+    }
   }
 }
